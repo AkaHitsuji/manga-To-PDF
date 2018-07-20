@@ -14,7 +14,10 @@
 
 
 import re
+import os
 
 url = 'https://www.mangareader.net/fantasista/1/2'
 chapter_name = url.split("/")[3]
 print(chapter_name)
+cwd = os.getcwd()
+print(cwd)

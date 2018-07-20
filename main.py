@@ -1,5 +1,6 @@
 import requests
 import argparse
+import os
 from bs4 import BeautifulSoup
 
 def download_manga(args):
@@ -8,7 +9,13 @@ def download_manga(args):
     num_chapters = args.n
     start_chapter = args.s
 
+    cwd = os.getcwd()
     chapter_name = base_url.split("/")[3]
+    new_folder = cwd + '/' + chapter_name
+
+    # make new folder and cd into it
+    os.makedirs(new_folder)
+    os.chdir(chapter_name)
 
     manga_downloaded = False
     count = 0
